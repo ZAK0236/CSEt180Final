@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+    <link rel="stylesheet" href="contact.css">
+    <style>
+       *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    color: #f5f1f1;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    text-rendering: optimizeLegibility;
+}
+
+h1{
+    border-bottom: 2px solid rgb(81, 0, 209);
+    width: fit-content;
+    margin: auto;
+    color: black;
+}
+
+.contact-info{
+    background-color: rgb(240, 240, 240);
+    box-shadow: inset 0px 0px 10px gray;
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 20px;
+    color: black;
+    text-transform: uppercase;
+    height: 250px;
+}
+.contact-title{
+    border-bottom: 2px solid rgb(81, 0, 209);
+    width: fit-content;
+    color: black;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+.logo {
+    max-width: 270px;
+    display: block;
+    margin: 0 auto;
+}
+
+.navbar {
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+}
+
+.navbar a{
+    text-decoration: none;
+    color: #0133b7;
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+.navbar a:hover {color: rgb(38, 154, 221);}
+
+.navbar a.active {
+    text-decoration: none;
+    color: rgb(38, 154, 221);
+    padding: 5px 10px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+}
+
+#top, #bottom, #left, #right {
+	background: #9fcbd6;
+	position: fixed;
+	}
+	#left, #right {
+		top: 0; bottom: 0;
+		width: 15px;
+		}
+		#left { left: 0; }
+		#right { right: 0; }
+		
+	#top, #bottom {
+		left: 0; right: 0;
+		height: 15px;
+		}
+		#top { top: 0; }
+		#bottom { bottom: 0; }
+
+hr{
+    width: 100px;
+    height: 3px;
+    background-color: #9fcbd6;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+Input{
+    border-radius: 7px;
+    border: 1px solid rgb(142, 138, 138);
+    padding: 10px;
+}
+label{
+    float: left;
+    margin-bottom: 20px;
+}
+label2{
+float: left;
+margin-top: 20px;
+}
+label3{
+    float: left;
+    margin-top: 80px;
+    margin-left: -380px;
+}
+.Name{
+    float: left;
+    margin-top: 0px;
+    height: 30px;
+    position: absolute;
+}
+.Phone{
+    margin-left: -15px;
+    float: left;
+    margin-top: 25px;
+    height: 40px;
+    margin-bottom: 30px;
+    width: 320px;
+}
+.Email{
+    margin-left: -320px;
+    margin-top: 90px;
+    height: 40px;
+    position: absolute;
+}
+.SBTN{
+    background-color: #0133b7;
+    color: #0133b7;
+    padding-top: 1px;
+    padding-left: 38px;
+    min-height: 20px;
+    min-width: 120px;
+    margin-top: 10px;
+    margin-left: 830px;
+    width: 10px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    border-style: none;
+    cursor: pointer;
+}
+.SB{
+    background-color: #0133b7;
+    color: white;
+    cursor: pointer;
+    border-style: none;
+}
+#output{
+    color: #0133b7;
+    font-size: 20px;
+}
+
+footer {
+    background-color: #9fcbd6;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 20px;
+    width: 100%;
+    position: absolute;
+    margin-top: 10px;
+}
+
+.social-media {
+    padding: 0px 20px;
+}
+
+.social-logo{
+    margin: 5px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.social-logo :last-child {
+    margin-right: 0;
+}
+
+.copyright {
+    text-align: right;
+    font-size: small;
+    font-size: medium;
+}
+ 
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="topBar">
+      <div class="topBar">
+        <img src="../static/images/logo.jpg" alt="Logo" class="logo" height="50px">
+        <ul class="navbar">
+          <li><a href="/home">Home</a></li>
+          <!--Display Hello Message with Register and Login in corner-->
+          <li><a href="/menu">Products Menu</a></li>
+          <!--Display Current Products with ability to add to cart-->
+          <li><a href="/account">Account</a></li>
+          <!--Display Current Users Account Info-->
+          <li><a href="/contact">Contact Page</a></li>
+          <!--Displays customers personal info and edit info also-->
+        </ul>
+
+        <div class="formSection barItem" style="margin-left:1400px;">
+          <form class="barItem" action="" method="post">
+            <button class="test">
+              <a class="input_submit" href="{{ url_for('logout') }}">Logout</a>
+            </button>
+          </form>
+      </div>
+    </div>
+    </div>
+  </header>
+
+<h1>My Account</h1>
+    <p>User ID: {{ Accounts.user_id }}</p>
+    <p>Account Type: {{ Accounts.account_type }}</p>
+    <p>Full Name: {{ Accounts.full_name }}</p>
+    <p>Email: {{ Accounts.email }}</p>
+    <p>SSN Or EIN: {{ Accounts.ssn_or_ein }}</p>
+    <p>Address: {{ Accounts.address }}</p>
+    <p>Phone Number: {{ Accounts.phone_number }}</p>
+    <p>Password: {{ Accounts.pass_word }}</p>
+
+    <footer class="footer">
+        <div class="footer__addr">
+          <h1 class="footer__logo">The Coolest E-Commerce Store Around!</h1>
+  
+          <h2>Contact</h2>
+  
+          <address>
+            2360 Only One Lane Coughlin, Pennsylvania 24733-22236<br>
+  
+            <a class="footer__btn" href="mailto: Dulmes-Support@email.com">Email Us</a>
+          </address>
+        </div>
+  
+        <ul class="footer__nav">
+          <li class="nav__item">
+            <h2 class="nav__title">Media</h2>
+  
+            <ul class="nav__ul">
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Online_shopping">Online</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Print">Print</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Advertising">Alternative Ads</a>
+              </li>
+            </ul>
+          </li>
+  
+          <li class="nav__item nav__item--extra">
+            <h2 class="nav__title">Technology</h2>
+  
+            <ul class="nav__ul nav__ul--extra">
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Hardware">Hardware Design</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Software">Software Design</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Digital_marketing">Digital Signage</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Automation">Automation</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Artificial_intelligence">Artificial Intelligence</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Internet_of_things">IoT</a>
+              </li>
+            </ul>
+          </li>
+  
+          <li class="nav__item">
+            <h2 class="nav__title">Legal</h2>
+  
+            <ul class="nav__ul">
+              <li>
+                <a href="https://simple.wikipedia.org/wiki/Privacy">Privacy Policy</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/w/index.php?search=terms+of+use&title=Special%3ASearch&ns0=1">Terms of Use</a>
+              </li>
+  
+              <li>
+                <a href="https://simple.wikipedia.org/w/index.php?search=sitemap&title=Special%3ASearch&ns0=1">Sitemap</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+  
+        <div class="legal">
+          <p>&copy; 2024 by Dulmes E-Commerce. All Rights Reserved.</p>
+  
+          <div class="legal__links">
+            <span>Made with <span class="heart">♥</span> remotely from Pennsylvania</span>
+          </div>
+        </div>
+      </footer>
+
+<script src="index.js"></script>
+<script type="text/javascript">
+    document.querySelector("form.commentform").addEventListener("submit", function(event) {
+});
+let output = document.getElementById('output');
+    const formToReset = document.getElementById('demo_form');
+    formToReset.addEventListener('submit', (e) => {
+    e.preventDefault();
+    formToReset.reset();
+    output.innerHTML += "We Will Contact You Soon, Thank You! <br>";
+});
+function save() { 
+    var fieldValue = document.getElementById('comment').value; 
+    localStorage.setItem('text', fieldValue); 
+} 
+function get() { 
+    var storedValue = localStorage.getItem('text'); 
+    if(storedValue) { 
+    document.getElementById('comment').value = storedValue; 
+  } 
+}
+</script>
+</body>
+</html>
